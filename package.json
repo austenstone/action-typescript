@@ -1,6 +1,6 @@
 {
   "name": "action-typescript",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Add an issue or pull request to a project",
   "main": "index.js",
   "scripts": {
