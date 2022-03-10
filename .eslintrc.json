@@ -1,7 +1,6 @@
 {
     "env": {
-        "browser": true,
-        "es2021": true
+        "node": true
     },
     "extends": ["eslint:recommended"],
     "parser": "@typescript-eslint/parser",
@@ -13,5 +12,6 @@
         "@typescript-eslint"
     ],
     "rules": {
-    }
+    },
+    "ignorePatterns": ["dist/**", "jest.config.js", "**/node_modules/**"]
 }

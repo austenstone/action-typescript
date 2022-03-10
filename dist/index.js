@@ -10,13 +10,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const projects_1 = __importDefault(__nccwpck_require__(7076));
-(0, projects_1.default)();
+const run_1 = __importDefault(__nccwpck_require__(7884));
+(0, run_1.default)();
 
 
 /***/ }),
 
-/***/ 7076:
+/***/ 7884:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -53,88 +53,12 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const core = __importStar(__nccwpck_require__(2186));
 const github = __importStar(__nccwpck_require__(5438));
 const run = () => __awaiter(void 0, void 0, void 0, function* () {
-    var _a, _b, _c, _d;
-    if (!github.context)
-        return core.setFailed('No GitHub context.');
-    if (!github.context.payload)
-        return core.setFailed('No event. Make sure this is an issue or pr event.');
-    const token = core.getInput('github-token') || process.env.GITHUB_TOKEN;
-    const projectNumber = parseInt(core.getInput('project-number'));
-    const organization = core.getInput('organization') || github.context.repo.owner;
-    const user = core.getInput('user');
-    const login = organization || user;
-    const issue = github.context.payload.issue;
-    const pr = github.context.payload.pull_request;
+    const token = core.getInput('github-token');
     if (!token)
-        return core.setFailed('No input \'token\'');
-    if (!projectNumber)
-        return core.setFailed('No input \'projectNumber\'');
-    if (!issue && !pr)
-        return core.setFailed('No issue or pr in event context');
-    const node_id = (issue === null || issue === void 0 ? void 0 : issue.node_id) || (pr === null || pr === void 0 ? void 0 : pr.node_id);
-    if (!node_id)
-        return core.setFailed('Can\'t find \'node_id\' in event context');
-    const type = issue ? 'issue' : 'pull request';
-    const title = issue ? issue.title : pr === null || pr === void 0 ? void 0 : pr.title;
+        return core.setFailed('No input \'github-token\'');
     const octokit = github.getOctokit(token);
-    core.startGroup(`Get project number \u001b[1m${projectNumber}\u001B[m`);
-    let projectQuery;
-    if (user) {
-        projectQuery = `{
-      user(login: "${user}") {
-        projectNext(number: ${projectNumber}) {
-          title,
-          id
-        }
-      }
-    }`;
-    }
-    else if (organization) {
-        projectQuery = `{
-      organization(login: "${organization}") {
-        projectNext(number: ${projectNumber}) {
-          title,
-          id
-        }
-      }
-    }`;
-    }
-    else {
-        core.setFailed('No input \'organization\' or \'user\'');
-    }
-    const headers = { 'GraphQL-Features': 'projects_next_graphql', };
-    const projectNextResponse = yield octokit.graphql(projectQuery);
-    core.info(JSON.stringify(projectNextResponse, null, 2));
-    core.endGroup();
-    const projectNext = ((_a = projectNextResponse === null || projectNextResponse === void 0 ? void 0 : projectNextResponse.organization) === null || _a === void 0 ? void 0 : _a.projectNext) || ((_b = projectNextResponse === null || projectNextResponse === void 0 ? void 0 : projectNextResponse.user) === null || _b === void 0 ? void 0 : _b.projectNext);
-    if (!(projectNext === null || projectNext === void 0 ? void 0 : projectNext.id)) {
-        core.setFailed(`Project number \u001b[1m${projectNumber}\u001B[m not found for login \u001b[1m${login}\u001B[m.
-Check the number of the project and that it is owned by \u001b[1m${login}\u001B[m.
-EX: \u001b[1mhttps://github.com/orgs/github/projects/1234\u001B[m has the number \u001b[1m1234\u001B[m.`);
-        return;
-    }
-    core.startGroup(`Add ${type} \u001b[1m${title}\u001B[m to project \u001b[1m${projectNext.title}\u001B[m`);
-    const result = yield octokit.graphql({
-        query: `mutation {
-      addProjectNextItem(
-        input: { contentId: "${node_id}", projectId: "${projectNext.id}" }
-      ) {
-        projectNextItem {
-          id
-        }
-      }
-    }`,
-        headers
-    });
-    core.info(JSON.stringify(result, null, 2));
-    core.endGroup();
-    if (!((_d = (_c = result === null || result === void 0 ? void 0 : result.addProjectNextItem) === null || _c === void 0 ? void 0 : _c.projectNextItem) === null || _d === void 0 ? void 0 : _d.id)) {
-        core.setFailed(`Failed to add ${type} to project '${projectNext.title}'.`);
-        return;
-    }
-    const link = `https://github.com/${user ? 'users/' + user : 'orgs/' + organization}/projects/${projectNumber}`;
-    core.info(`✅ Successfully added ${type} \u001b[1m${title}\u001B[m to project \u001b[1m${projectNext.title}\u001B[m.
-${link}`);
+    const { data: { login }, } = yield octokit.rest.users.getAuthenticated();
+    core.info(`Hello, ${login}`);
 });
 exports["default"] = run;
 

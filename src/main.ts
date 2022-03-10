@@ -1,3 +1,3 @@
-import run from './projects';
+import run from './run';
 
 run();
