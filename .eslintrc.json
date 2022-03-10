@@ -2,7 +2,7 @@
     "env": {
         "node": true
     },
-    "extends": ["eslint:recommended"],
+    "extends": ["eslint:recommended", "google"],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaVersion": "latest",
@@ -12,6 +12,7 @@
         "@typescript-eslint"
     ],
     "rules": {
+        "object-curly-spacing": ["error", "always"]
     },
     "ignorePatterns": ["dist/**", "jest.config.js", "**/node_modules/**"]
 }
