@@ -5,7 +5,7 @@ import { test } from '@jest/globals'
 import * as core from '@actions/core'
 
 test('test run', () => {
-  process.env['INPUT_GITHUB-TOKEN'] = process.env.GITHUB_TOKEN || core.getInput('github-token')
+  process.env['INPUT_GITHUB-TOKEN'] = core.getInput('github-token') || process.env.GITHUB_TOKEN
   const np = process.execPath
   const ip = path.join(__dirname, '..', 'lib', 'main.js')
   const options: cp.ExecFileSyncOptions = {
