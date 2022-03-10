@@ -21,7 +21,7 @@ on:
       - '**/*.md'
       - '**/*.txt'
   schedule:
-    - cron: '30 20 * * 2'
+    - cron: '40 23 * * 1'
 
 jobs:
   analyze:
