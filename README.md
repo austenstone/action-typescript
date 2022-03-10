@@ -23,4 +23,4 @@ Various inputs are defined in [`action.yml`](action.yml):
 
 | Name | Description | Default |
 | --- | - | - |
-| github&#x2011;token | Token to use to authorize. This should be a personal access token. | ${{&nbsp;github.token&nbsp;}} |
+| github&#x2011;token | Token to use to authorize. | ${{&nbsp;github.token&nbsp;}} |
