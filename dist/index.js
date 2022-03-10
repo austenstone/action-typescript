@@ -57,7 +57,11 @@ const run = () => __awaiter(void 0, void 0, void 0, function* () {
     if (!token)
         return core.setFailed('No input \'github-token\'');
     const octokit = github.getOctokit(token);
-    const { data: { login }, } = yield octokit.rest.users.getAuthenticated();
+    const { viewer: { login }, } = yield octokit.graphql(`{ 
+    viewer { 
+      login
+    }
+  }`);
     core.info(`Hello, ${login}`);
 });
 exports["default"] = run;
