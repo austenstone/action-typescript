@@ -4,11 +4,10 @@
   "description": "GitHub Actions TypeScript template",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc && npm run package",
+    "build": "ncc build src/index.ts",
     "test": "jest",
-    "package": "ncc build lib/main.js --source-map",
     "lint": "eslint src/**/*.ts",
-    "dev": "ts-node-dev --respawn src/main.ts"
+    "dev": "ts-node-dev --respawn src/index.ts"
   },
   "keywords": [
     "actions",
