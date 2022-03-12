@@ -15,7 +15,7 @@ const run = async (): Promise<void> => {
     }
   }`);
 
-  core.info(`Hello, ${login}`);
+  core.info(`Hello, ${login}!`);
 };
 
 export default run;
