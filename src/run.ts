@@ -1,13 +1,13 @@
 import * as core from '@actions/core';
 import * as github from '@actions/github';
 
-interface Inputs {
+interface Input {
   token: string;
 }
 
-export function getInputs(): Inputs {
-  const result = {} as Inputs;
-  
+export function getInputs(): Input {
+  const result = {} as Input;
+
   result.token = core.getInput('github-token');
   if (!result.token) throw Error('No input \'github-token\'');
 
@@ -16,8 +16,8 @@ export function getInputs(): Inputs {
 
 const run = async (): Promise<void> => {
   try {
-    const inputs = getInputs();
-    const octokit = github.getOctokit(inputs.token);
+    const input = getInputs();
+    const octokit = github.getOctokit(input.token);
 
     const {
       viewer: { login },
