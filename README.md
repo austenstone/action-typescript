@@ -27,10 +27,7 @@ Linting is done with [eslint](https://github.com/eslint/eslint).
 npm run lint
 ```
 
-## Further help
-To get more help on the Actions see [documentation](https://docs.github.com/en/actions).
-
-## Usage
+## 🏃 Usage
 Create a workflow (eg: `.github/workflows/run.yml`). See [Creating a Workflow file](https://help.github.com/en/articles/configuring-a-workflow#creating-a-workflow-file).
 
 #### Default Workflow
@@ -46,9 +43,12 @@ jobs:
       - uses: austenstone/action-typescript@main
 ```
 
-## Input Settings
+## ➡️ Input Settings
 Various inputs are defined in [`action.yml`](action.yml):
 
 | Name | Description | Default |
 | --- | - | - |
 | github&#x2011;token | Token to use to authorize. | ${{&nbsp;github.token&nbsp;}} |
+
+## Further help
+To get more help on the Actions see [documentation](https://docs.github.com/en/actions).
