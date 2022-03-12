@@ -16,7 +16,7 @@ npm run build
 ```
 
 ## 🧪 Test
-Test the project with  [jest](https://github.com/facebook/jest).
+Test the project with [jest](https://github.com/facebook/jest).
 ```
 npm test
 ```
