@@ -1,21 +1,33 @@
 # TypeScript Action Template
 
-This repository serves as a [template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) for TypeScript [Actions](https://docs.github.com/en/actions). For JavaScript see [austenstone/action-javascript](https://github.com/austenstone/action-javascript).
+This repository serves as a [template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) for TypeScript [Actions](https://docs.github.com/en/actions).
+<br>For JavaScript see [austenstone/action-javascript](https://github.com/austenstone/action-javascript).
 
-## Development
+## 🧑‍💻 Development
+Use [ts-node-dev](https://github.com/wclr/ts-node-dev) for a hot-reload dev environment.
+```
+npm run dev
+```
 
-Run `npm run dev` for a hot-reload dev environment.
+## 🔨 Build
+Build the project with [ncc](https://github.com/vercel/ncc).<br>The build artifacts will be stored in a single file `dist/index.js`.
+```
+npm run build
+```
 
-## Build
+## 🧪 Test
+Test the project with  [jest](https://github.com/facebook/jest).
+```
+npm test
+```
 
-Run `npm run build` to build the project with `ncc`. The build artifacts will be stored in a single file `dist/index.js`.
-
-## Running unit tests
-
-Run `npm test` to execute the unit tests via [Jest](https://karma-runner.github.io).
+## 🧹 Lint
+Linting is done with [eslint](https://github.com/eslint/eslint).
+```
+npm run lint
+```
 
 ## Further help
-
 To get more help on the Actions see [documentation](https://docs.github.com/en/actions).
 
 ## Usage
