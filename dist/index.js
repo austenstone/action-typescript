@@ -8352,19 +8352,31 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.getInputs = void 0;
 const core = __importStar(__nccwpck_require__(2186));
 const github = __importStar(__nccwpck_require__(5438));
+function getInputs() {
+    const result = {};
+    result.token = core.getInput('github-token');
+    if (!result.token)
+        throw Error('No input \'github-token\'');
+    return result;
+}
+exports.getInputs = getInputs;
 const run = () => __awaiter(void 0, void 0, void 0, function* () {
-    const token = core.getInput('github-token');
-    if (!token)
-        return core.setFailed('No input \'github-token\'');
-    const octokit = github.getOctokit(token);
-    const { viewer: { login }, } = yield octokit.graphql(`{ 
-    viewer { 
-      login
+    try {
+        const inputs = getInputs();
+        const octokit = github.getOctokit(inputs.token);
+        const { viewer: { login }, } = yield octokit.graphql(`{ 
+      viewer { 
+        login
+      }
+    }`);
+        core.info(`Hello, ${login}!`);
     }
-  }`);
-    core.info(`Hello, ${login}!`);
+    catch (error) {
+        core.setFailed(error instanceof Error ? error.message : JSON.stringify(error));
+    }
 });
 exports["default"] = run;
 
