@@ -1,10 +1,11 @@
 {
     "env": {
-        "node": true
+        "browser": true,
+        "es2021": true
     },
     "extends": [
         "eslint:recommended",
-        "google"
+        "plugin:@typescript-eslint/recommended"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -14,10 +15,6 @@
     "plugins": [
         "@typescript-eslint"
     ],
-    "rules": {},
-    "ignorePatterns": [
-        "dist/**",
-        "jest.config.js",
-        "**/node_modules/**"
-    ]
+    "rules": {
+    }
 }
