@@ -2,7 +2,10 @@
     "env": {
         "node": true
     },
-    "extends": ["eslint:recommended", "google"],
+    "extends": [
+        "eslint:recommended",
+        "google"
+    ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaVersion": "latest",
@@ -11,16 +14,10 @@
     "plugins": [
         "@typescript-eslint"
     ],
-    "rules": {
-        "object-curly-spacing": ["error", "always"],
-        "max-len": ["error", {
-            "code": 120,
-            "ignoreComments": true,
-            "ignoreRegExpLiterals": true,
-            "ignoreStrings": true,
-            "ignoreTemplateLiterals": true
-        }],
-        "linebreak-style": 0
-    },
-    "ignorePatterns": ["dist/**", "jest.config.js", "**/node_modules/**"]
+    "rules": {},
+    "ignorePatterns": [
+        "dist/**",
+        "jest.config.js",
+        "**/node_modules/**"
+    ]
 }
