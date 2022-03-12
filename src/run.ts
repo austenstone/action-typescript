@@ -7,10 +7,7 @@ interface Input {
 
 export function getInputs(): Input {
   const result = {} as Input;
-
   result.token = core.getInput('github-token');
-  if (!result.token) throw Error('No input \'github-token\'');
-
   return result;
 }
 
