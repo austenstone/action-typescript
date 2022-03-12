@@ -12,10 +12,8 @@
   "keywords": [
     "actions",
     "node",
-    "openai",
     "github",
-    "issue",
-    "labeler"
+    "typescript"
   ],
   "author": "Austen Stone",
   "readme": "README.md",
