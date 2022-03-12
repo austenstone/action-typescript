@@ -28,9 +28,9 @@ npm run lint
 ```
 
 ## 🏃 Usage
-Create a workflow (eg: `.github/workflows/run.yml`). See [Creating a Workflow file](https://help.github.com/en/articles/configuring-a-workflow#creating-a-workflow-file).
+[Create a workflow](https://help.github.com/en/articles/configuring-a-workflow#creating-a-workflow-file) (eg: [`.github/workflows/run.yml`](.github/workflows/usage.yaml))
 
-#### Default Workflow
+### Default Workflow
 ```yml
 name: "Add to Project"
 on:
