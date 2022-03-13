@@ -14,7 +14,7 @@ export function getInputs(): Input {
 const run = async (): Promise<void> => {
   try {
     const input = getInputs();
-    const octokit = github.getOctokit(input.token);
+    const octokit: ReturnType<typeof github.getOctokit> = github.getOctokit(input.token);
 
     const {
       viewer: { login },

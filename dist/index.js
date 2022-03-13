@@ -8358,15 +8358,13 @@ const github = __importStar(__nccwpck_require__(5438));
 function getInputs() {
     const result = {};
     result.token = core.getInput('github-token');
-    if (!result.token)
-        throw Error('No input \'github-token\'');
     return result;
 }
 exports.getInputs = getInputs;
 const run = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const inputs = getInputs();
-        const octokit = github.getOctokit(inputs.token);
+        const input = getInputs();
+        const octokit = github.getOctokit(input.token);
         const { viewer: { login }, } = yield octokit.graphql(`{ 
       viewer { 
         login
