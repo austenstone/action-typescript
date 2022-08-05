@@ -1,54 +1,48 @@
-# TypeScript Action Template
+# Action
 
-This repository serves as a [template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) for TypeScript [Actions](https://docs.github.com/en/actions).
-<br>For JavaScript see [austenstone/action-javascript](https://github.com/austenstone/action-javascript).
+An [Action](https://docs.github.com/en/actions).
 
-## 🧑‍💻 Development
-Use [ts-node-dev](https://github.com/wclr/ts-node-dev) for a hot-reload dev environment.
-```
-npm run dev
-```
+## Usage
+Create a workflow (eg: `.github/workflows/seat-count.yml`). See [Creating a Workflow file](https://help.github.com/en/articles/configuring-a-workflow#creating-a-workflow-file).
 
-## 🔨 Build
-Build the project with [ncc](https://github.com/vercel/ncc).<br>The build artifacts will be stored in a single file `dist/index.js`.
-```
-npm run build
-```
+<!-- 
+### PAT(Personal Access Token)
 
-## 🧪 Test
-Test the project with [jest](https://github.com/facebook/jest).
-```
-npm test
-```
+You will need to [create a PAT(Personal Access Token)](https://github.com/settings/tokens/new?scopes=admin:org) that has `admin:org` access.
 
-## 🧹 Lint
-Linting is done with [eslint](https://github.com/eslint/eslint).
-```
-npm run lint
-```
+Add this PAT as a secret so we can use it as input `github-token`, see [Creating encrypted secrets for a repository](https://docs.github.com/en/enterprise-cloud@latest/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository). 
+### Organizations
 
-## 🏃 Usage
-[Create a workflow](https://help.github.com/en/articles/configuring-a-workflow#creating-a-workflow-file) (eg: [`.github/workflows/run.yml`](.github/workflows/usage.yaml))
+If your organization has SAML enabled you must authorize the PAT, see [Authorizing a personal access token for use with SAML single sign-on](https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on).
+-->
 
-### Default Workflow
+#### Example
 ```yml
-name: "Add to Project"
+name: TypeScript Action Workflow
 on:
   workflow_dispatch:
 
 jobs:
   run:
+    name: Run Action
     runs-on: ubuntu-latest
     steps:
       - uses: austenstone/action-typescript@main
 ```
 
-## ➡️ Input Settings
+## ➡️ Inputs
 Various inputs are defined in [`action.yml`](action.yml):
 
 | Name | Description | Default |
 | --- | - | - |
 | github&#x2011;token | Token to use to authorize. | ${{&nbsp;github.token&nbsp;}} |
+
+<!-- 
+## ⬅️ Outputs
+| Name | Description |
+| --- | - |
+| output | The output. |
+-->
 
 ## Further help
 To get more help on the Actions see [documentation](https://docs.github.com/en/actions).
