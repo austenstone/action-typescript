@@ -26,7 +26,9 @@ const run = async (): Promise<void> => {
 
     core.info(`Hello, ${login}!`);
   } catch (error) {
-    core.setFailed(error instanceof Error ? error.message : JSON.stringify(error))
+    core.startGroup(error instanceof Error ? error.message : JSON.stringify(error));
+    core.info(JSON.stringify(error, null, 2));
+    core.endGroup();
   }
 };
 
