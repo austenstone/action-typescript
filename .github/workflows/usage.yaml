@@ -1,4 +1,4 @@
-name: TypeScript Action Workflow
+name: Usage
 on:
   push:
   pull_request:
