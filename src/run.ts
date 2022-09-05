@@ -1,5 +1,6 @@
 import * as core from '@actions/core';
 import * as github from '@actions/github';
+import type { GraphQlQueryResponseData } from "@octokit/graphql";
 
 interface Input {
   token: string;
@@ -18,7 +19,7 @@ const run = async (): Promise<void> => {
 
     const {
       viewer: { login },
-    } = await octokit.graphql(`{ 
+    }: GraphQlQueryResponseData = await octokit.graphql(`{ 
       viewer { 
         login
       }
