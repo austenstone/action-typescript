@@ -9,7 +9,8 @@ jobs:
     steps:
       - run: |
           gh search prs \
-            --owner googlemaps \ # replace with GitHub owner
+            --owner austenstone \ # replace with GitHub owner
+            --repo action-typescript \ # replace or remove repo name
             --state open \
             --label dependencies \
             --limit 200 \
