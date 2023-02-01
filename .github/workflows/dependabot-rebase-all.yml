@@ -9,7 +9,6 @@ jobs:
     steps:
       - run: |
           gh search prs \
-          # --owner austenstone \
             --repo austenstone/action-typescript \
             --state open \
             --label dependencies \
