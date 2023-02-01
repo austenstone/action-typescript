@@ -10,7 +10,7 @@ jobs:
       - run: |
           gh search prs \
             --owner austenstone \
-            --repo action-typescript \
+            --repo austenstone/action-typescript \
             --state open \
             --label dependencies \
             --limit 200 \
