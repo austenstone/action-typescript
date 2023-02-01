@@ -1,4 +1,4 @@
-name: Dependabot Rebase All
+name: Dependabot Action All
 
 on:
   workflow_dispatch:
