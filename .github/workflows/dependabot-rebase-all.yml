@@ -9,8 +9,8 @@ jobs:
     steps:
       - run: |
           gh search prs \
-            --owner austenstone \ # replace with GitHub owner
-            --repo action-typescript \ # replace or remove repo name
+            --owner austenstone \
+            --repo action-typescript \
             --state open \
             --label dependencies \
             --limit 200 \
