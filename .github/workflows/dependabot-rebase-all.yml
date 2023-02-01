@@ -5,8 +5,7 @@ on:
     inputs:
       action:
         description: 'Dependabot Action'
-        required: true
-        default: 'warning'
+        default: 'rebase'
         type: choice
         options:
         - rebase
@@ -21,7 +20,7 @@ on:
         - ignore this dependency
 
 jobs:
-  rebase:
+  action:
     uses: austenstone/.github/.github/workflows/dependabot-rebase-all.yml@main
     with:
       action: ${{ inputs.action }}
