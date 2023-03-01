@@ -1,6 +1,6 @@
 # Action
 
-An [Action](https://docs.github.com/en/actions).
+This repository serves as a [template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) for TypeScript [Actions](https://docs.github.com/en/actions).
 
 ## Usage
 Create a workflow (eg: `.github/workflows/seat-count.yml`). See [Creating a Workflow file](https://help.github.com/en/articles/configuring-a-workflow#creating-a-workflow-file).
