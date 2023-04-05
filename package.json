@@ -4,7 +4,7 @@
   "description": "GitHub Actions TypeScript template",
   "main": "dist/index.js",
   "scripts": {
-    "build": "ncc build src/index.ts",
+    "build": "ncc build",
     "test": "jest",
     "lint": "eslint src/**/*.ts",
     "dev": "ts-node-dev --respawn src/index.ts"
