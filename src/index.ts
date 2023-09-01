@@ -12,24 +12,18 @@ export function getInputs(): Input {
 }
 
 const run = async (): Promise<void> => {
-  try {
     const input = getInputs();
     const octokit: ReturnType<typeof github.getOctokit> = github.getOctokit(input.token);
 
     const {
       viewer: { login },
     }: any = await octokit.graphql(`{ 
-      viewer { 
+      viewer {
         login
       }
     }`);
 
     core.info(`Hello, ${login}!`);
-  } catch (error) {
-    core.startGroup(error instanceof Error ? error.message : JSON.stringify(error));
-    core.info(JSON.stringify(error, null, 2));
-    core.endGroup();
-  }
 };
 
 run();
