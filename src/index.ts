@@ -1,5 +1,5 @@
-import * as core from '@actions/core';
-import * as github from '@actions/github';
+import { getInput, info } from "@actions/core";
+import { getOctokit } from "@actions/github";
 
 interface Input {
   token: string;
@@ -7,23 +7,23 @@ interface Input {
 
 export function getInputs(): Input {
   const result = {} as Input;
-  result.token = core.getInput('github-token');
+  result.token = getInput("github-token");
   return result;
 }
 
 const run = async (): Promise<void> => {
-    const input = getInputs();
-    const octokit: ReturnType<typeof github.getOctokit> = github.getOctokit(input.token);
+  const input = getInputs();
+  const octokit = getOctokit(input.token);
 
-    const {
-      viewer: { login },
-    }: any = await octokit.graphql(`{ 
+  const {
+    viewer: { login },
+  }: any = await octokit.graphql(`{ 
       viewer {
         login
       }
     }`);
 
-    core.info(`Hello, ${login}!`);
+  info(`Hello, ${login}!`);
 };
 
 run();
