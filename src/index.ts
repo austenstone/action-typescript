@@ -18,10 +18,10 @@ const run = async (): Promise<void> => {
   const {
     viewer: { login },
   }: any = await octokit.graphql(`{ 
-      viewer {
-        login
-      }
-    }`);
+    viewer {
+      login
+    }
+  }`);
 
   info(`Hello, ${login}!`);
 };
