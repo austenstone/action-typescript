@@ -4,7 +4,7 @@
   "description": "GitHub Actions TypeScript template",
   "main": "src/index.ts",
   "scripts": {
-    "build": "ncc build",
+    "build": "ncc build --minify --license LICENSE",
     "test": "jest",
     "lint": "eslint src/**/*.ts",
     "dev": "ts-node-dev --respawn src/index.ts"

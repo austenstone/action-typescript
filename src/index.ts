@@ -16,12 +16,8 @@ const run = async (): Promise<void> => {
   const octokit = getOctokit(input.token);
 
   const {
-    viewer: { login },
-  }: any = await octokit.graphql(`{ 
-    viewer {
-      login
-    }
-  }`);
+    data: { login },
+  } = await octokit.rest.users.getAuthenticated();
 
   info(`Hello, ${login}!`);
 };
