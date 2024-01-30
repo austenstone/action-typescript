@@ -1,18 +1,13 @@
-name: Format
-
+name: Auto Update Dependencies
 on:
   schedule:
     - cron: '0 0 * * *'
 
 jobs:
-  format-code:
+  update:
     runs-on: ubuntu-latest
-
     permissions:
-      # Give the default GITHUB_TOKEN write permission to commit and push the
-      # added or changed files to the repository.
       contents: write
-
     steps:
       - uses: actions/checkout@v4
 
