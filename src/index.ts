@@ -11,13 +11,11 @@ export function getInputs(): Input {
   if (!result.token || result.token === "") {
     throw new Error("github-token is required");
   }
-  console.log(result)
   return result;
 }
 
 const run = async (): Promise<void> => {
   const input = getInputs();
-  return;
   const octokit = getOctokit(input.token);
 
   const {
