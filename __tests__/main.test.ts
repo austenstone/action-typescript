@@ -6,8 +6,7 @@ import { test } from '@jest/globals';
 const addInput = (key, value) => process.env[`INPUT_${key.replace(/ /g, '-').toUpperCase()}`] = value || ''
 
 const input: any = {
-  'github-token': process.env.GITHUB_TOKEN,
-  organization: process.env.ORGANIZATION
+  'github-token': process.env.GITHUB_TOKEN
 }
 
 test('test run', () => {
