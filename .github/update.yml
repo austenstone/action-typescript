@@ -1,0 +1,23 @@
+name: Format
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  format-code:
+    runs-on: ubuntu-latest
+
+    permissions:
+      # Give the default GITHUB_TOKEN write permission to commit and push the
+      # added or changed files to the repository.
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - run: npx npm-check-updates -u
+      - run: npm i
+      - run: npm audit fix
+
+      - uses: stefanzweifel/git-auto-commit-action@v5
