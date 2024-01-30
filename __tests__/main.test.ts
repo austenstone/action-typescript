@@ -3,11 +3,11 @@ import * as cp from 'child_process';
 import * as path from 'path';
 import { test } from '@jest/globals';
 
-const addInput = (key, value) => process.env[`INPUT_${key.replace(/ /g, '-').toUpperCase()}`] = value
+const addInput = (key, value) => process.env[`INPUT_${key.replace(/ /g, '-').toUpperCase()}`] = value || ''
 
 const input: any = {
   'github-token': process.env.GITHUB_TOKEN,
-  organization: process.env.ORGANIZATION || 'octoaustenstone'
+  organization: process.env.ORGANIZATION
 }
 
 test('test run', () => {

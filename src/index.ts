@@ -8,11 +8,16 @@ interface Input {
 export function getInputs(): Input {
   const result = {} as Input;
   result.token = getInput("github-token");
+  if (!result.token || result.token === "") {
+    throw new Error("github-token is required");
+  }
+  console.log(result)
   return result;
 }
 
 const run = async (): Promise<void> => {
   const input = getInputs();
+  return;
   const octokit = getOctokit(input.token);
 
   const {
