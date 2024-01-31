@@ -5,7 +5,7 @@ interface Input {
   token: string;
 }
 
-export function getInputs(): Input {
+const getInputs = (): Input => {
   const result = {} as Input;
   result.token = getInput("github-token");
   if (!result.token || result.token === "") {
