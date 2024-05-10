@@ -14,7 +14,7 @@ const getInputs = (): Input => {
   return result;
 }
 
-const run = async (): Promise<void> => {
+export const run = async (): Promise<void> => {
   const input = getInputs();
   const octokit = getOctokit(input.token);
 
