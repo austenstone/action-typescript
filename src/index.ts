@@ -25,7 +25,6 @@ try {
   });
 } catch (e) {
   if (e instanceof Error) {
-    error(JSON.stringify(e.stack, null, 2));
     const stack = e.stack?.split("\n").map((s) => {
       const path = s.split("/");
       const _file = path[path.length - 1];
@@ -38,7 +37,7 @@ try {
     });
     info(`Stack: ${JSON.stringify(stack, null, 2)}`);
     error(e.message, {
-      title: e.message,
+      title: e.name,
       ...(stack ? stack[stack.length - 1] : {}),
     });
   }
