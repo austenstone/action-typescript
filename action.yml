@@ -14,3 +14,5 @@ inputs:
 runs:
   using: "node20"
   main: "dist/index.js"
+  env:
+    NODE_OPTIONS: "--enable-source-maps"
