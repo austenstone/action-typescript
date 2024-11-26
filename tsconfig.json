@@ -20,7 +20,7 @@
     "noFallthroughCasesInSwitch": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "sourceMap": true
+    "inlineSourceMap": true
   },
   "exclude": [
     "node_modules",
