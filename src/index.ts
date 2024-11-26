@@ -26,18 +26,16 @@ try {
 } catch (e) {
   if (e instanceof Error) {
     const stack = e.stack?.split("\n").map((s) => {
-      const path = s.split("/");
-      const _file = path[path.length - 1];
-      const [file, startLine, startColumn] = _file.split(":");
+      const [file, startLine, startColumn] = s.split(":");
       return {
         file,
-        startLine: Number(startLine),
-        startColumn: Number(startColumn),
+        startLine: parseInt(startLine),
+        startColumn: parseInt(startColumn),
       };
     });
     info(`Stack: ${JSON.stringify(stack, null, 2)}`);
     error(e.message, {
-      title: e.message,
+      title: e.name,
       ...(stack ? stack[stack.length - 1] : {}),
     });
   }
