@@ -11,6 +11,11 @@ info(JSON.stringify(context.repo, null, 2));
 const octokit = getOctokit(input.token);
 
 try {
+  const {
+    data: { login },
+  } = await octokit.rest.users.getAuthenticated();
+  info(`Hello ${login}!`);
+
   await group("Issues", async () => {
     const { data: issues } = await octokit.rest.issues.list(context.repo);
 
