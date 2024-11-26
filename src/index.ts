@@ -1,4 +1,4 @@
-import { getInput, info, group } from "@actions/core";
+import { getInput, info, error, group } from "@actions/core";
 import { context, getOctokit } from "@actions/github";
 
 const input = {
@@ -6,13 +6,21 @@ const input = {
 };
 
 info(JSON.stringify(input, null, 2));
+info(JSON.stringify(context, null, 2));
 
 const octokit = getOctokit(input.token);
 
-await group("Issues", async () => {
-  const { data: issues } = await octokit.rest.issues.list(context.repo);
+try {
+  await group("Issues", async () => {
+    const { data: issues } = await octokit.rest.issues.list(context.repo);
 
-  for (const issue of issues) {
-    info(`#${issue.number}: ${issue.title}`);
+    for (const issue of issues) {
+      info(`#${issue.number}: ${issue.title}`);
+    }
+  });
+} catch (e) {
+  if (e instanceof Error) {
+    error(e.message);
   }
-});
+  throw e;
+}
