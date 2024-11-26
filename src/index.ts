@@ -16,5 +16,6 @@ try {
 } catch (e) {
   if (e instanceof Error) {
     error(e.message);
+    throw e;
   }
 }
