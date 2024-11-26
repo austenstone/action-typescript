@@ -26,8 +26,19 @@ try {
 } catch (e) {
   if (e instanceof Error) {
     error(JSON.stringify(e.stack, null, 2));
+    const stack = e.stack?.split("\n").map((s) => {
+      const path = s.split("/");
+      const _file = path[path.length - 1];
+      const [file, startLine, startColumn] = _file.split(":");
+      return {
+        file,
+        startLine: Number(startLine),
+        startColumn: Number(startColumn),
+      };
+    });
     error(e.message, {
       title: e.name,
+      ...(stack ? stack[stack.length - 1] : {}),
     });
   }
   throw e;
