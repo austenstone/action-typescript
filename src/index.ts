@@ -19,6 +19,7 @@ try {
     }
   });
 } catch (e) {
+  error(JSON.stringify(e, null, 2));
   if (e instanceof Error) {
     error(e.message);
   }
