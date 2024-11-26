@@ -29167,7 +29167,7 @@ catch (e) {
                 startColumn: parseInt(lastStackEntry[2]),
             }
             : {};
-        stackInfo.file = stackInfo.file?.split("/").slice(5).join("/");
+        stackInfo.file = stackInfo.file?.split("/").slice(6).join("/");
         (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.info)(`Stack: ${JSON.stringify(stackInfo, null, 2)}`);
         (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.error)(e.message, {
             title: e.name,
