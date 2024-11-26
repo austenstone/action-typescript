@@ -5,6 +5,8 @@ const input = {
   token: getInput("github-token"),
 };
 
+info(JSON.stringify(input, null, 2));
+
 const octokit = getOctokit(input.token);
 
 try {
