@@ -1,4 +1,4 @@
-import { getInput, info } from "@actions/core";
+import { getInput, info, error } from "@actions/core";
 import { getOctokit } from "@actions/github";
 
 const input = {
@@ -7,8 +7,14 @@ const input = {
 
 const octokit = getOctokit(input.token);
 
-const {
-  data: { login },
-} = await octokit.rest.users.getAuthenticated();
+try {
+  const {
+    data: { login },
+  } = await octokit.rest.users.getAuthenticated();
 
-info(`Hello, ${login}!`);
+  info(`Hello, ${login}!`);
+} catch (e) {
+  if (e instanceof Error) {
+    error(e.message);
+  }
+}
