@@ -37,7 +37,7 @@ try {
     });
     info(`Stack: ${JSON.stringify(stack, null, 2)}`);
     error(e.message, {
-      title: e.name,
+      title: e.message,
       ...(stack ? stack[stack.length - 1] : {}),
     });
   }
