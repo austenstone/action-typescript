@@ -10,7 +10,7 @@ info(JSON.stringify(input, null, 2));
 const octokit = getOctokit(input.token);
 
 try {
-  group("Issues", async () => {
+  await group("Issues", async () => {
     const { data: issues } = await octokit.rest.issues.list(context.repo);
 
     for (const issue of issues) {
@@ -20,6 +20,5 @@ try {
 } catch (e) {
   if (e instanceof Error) {
     error(e.message);
-    throw e;
   }
 }
