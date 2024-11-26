@@ -29137,12 +29137,12 @@ __nccwpck_require__.r(__webpack_exports__);
 
 
 const input = {
-    token: (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)("token"),
+    token: (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)("github-token"),
 };
 const octokit = (0,_actions_github__WEBPACK_IMPORTED_MODULE_1__.getOctokit)(input.token);
 const { data: { login }, } = await octokit.rest.users.getAuthenticated();
 (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.info)(`Hello, ${login}!`);
-
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiZmlsZTovLy9DOi9Vc2Vycy9hdXN0ZS9zb3VyY2UvYWN0aW9uLXR5cGVzY3JpcHQvc3JjL2luZGV4LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLE9BQU8sRUFBRSxRQUFRLEVBQUUsSUFBSSxFQUFFLE1BQU0sZUFBZSxDQUFDO0FBQy9DLE9BQU8sRUFBRSxVQUFVLEVBQUUsTUFBTSxpQkFBaUIsQ0FBQztBQUU3QyxNQUFNLEtBQUssR0FBRztJQUNaLEtBQUssRUFBRSxRQUFRLENBQUMsY0FBYyxDQUFDO0NBQ2hDLENBQUM7QUFFRixNQUFNLE9BQU8sR0FBRyxVQUFVLENBQUMsS0FBSyxDQUFDLEtBQUssQ0FBQyxDQUFDO0FBRXhDLE1BQU0sRUFDSixJQUFJLEVBQUUsRUFBRSxLQUFLLEVBQUUsR0FDaEIsR0FBRyxNQUFNLE9BQU8sQ0FBQyxJQUFJLENBQUMsS0FBSyxDQUFDLGdCQUFnQixFQUFFLENBQUM7QUFFaEQsSUFBSSxDQUFDLFVBQVUsS0FBSyxHQUFHLENBQUMsQ0FBQyJ9
 __webpack_async_result__();
 } catch(e) { __webpack_async_result__(e); } }, 1);
 
