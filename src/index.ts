@@ -24,8 +24,8 @@ try {
     }
   });
 } catch (e) {
-  error(JSON.stringify(e, null, 2));
   if (e instanceof Error) {
+    error(JSON.stringify(e.stack, null, 2));
     error(e.message, {
       title: e.name,
     });
