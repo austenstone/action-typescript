@@ -25,7 +25,12 @@ try {
   });
 } catch (e) {
   if (e instanceof Error) {
-    const lastStackEntry = e.stack?.split("\n").pop()?.split(":");
+    const lastStackEntry = e.stack
+      ?.split("\n")
+      .pop()
+      ?.split("at ")
+      .pop()
+      ?.split(":");
     const stackInfo = lastStackEntry
       ? {
           file: lastStackEntry[0],
@@ -34,10 +39,7 @@ try {
         }
       : {};
 
-    stackInfo.file?.replace(
-      `/home/runner/work/${context.repo.owner}/${context.repo.repo}/`,
-      "",
-    );
+    stackInfo.file = stackInfo.file?.replace(/^([^\/]+\/){5}/, "");
     info(`Stack: ${JSON.stringify(stackInfo, null, 2)}`);
     error(e.message, {
       title: e.name,
