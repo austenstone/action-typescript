@@ -36,6 +36,7 @@ try {
         startColumn: Number(startColumn),
       };
     });
+    info(`Stack: ${JSON.stringify(stack, null, 2)}`);
     error(e.message, {
       title: e.name,
       ...(stack ? stack[stack.length - 1] : {}),
