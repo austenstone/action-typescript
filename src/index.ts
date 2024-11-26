@@ -39,7 +39,7 @@ try {
         }
       : {};
 
-    stackInfo.file = stackInfo.file?.replace(/^([^\/]+\/){5}/, "");
+    stackInfo.file = stackInfo.file?.split("/").slice(5).join("/");
     info(`Stack: ${JSON.stringify(stackInfo, null, 2)}`);
     error(e.message, {
       title: e.name,
