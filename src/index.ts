@@ -6,7 +6,7 @@ const input = {
 };
 
 info(JSON.stringify(input, null, 2));
-info(JSON.stringify(context, null, 2));
+info(JSON.stringify(context.repo, null, 2));
 
 const octokit = getOctokit(input.token);
 
