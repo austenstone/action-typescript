@@ -40,8 +40,7 @@ try {
       : {};
 
     stackInfo.file = stackInfo.file?.split("/").slice(6).join("/");
-    info(`Stack: ${JSON.stringify(stackInfo, null, 2)}`);
-    error(e.message, {
+    error(`${e.message}\n${JSON.stringify(e)}`, {
       title: e.name,
       ...stackInfo,
     });
