@@ -5,9 +5,6 @@ const input = {
   token: getInput("github-token"),
 };
 
-info(JSON.stringify(input, null, 2));
-info(JSON.stringify(context.repo, null, 2));
-
 const octokit = getOctokit(input.token);
 
 try {
@@ -40,7 +37,7 @@ try {
       : {};
 
     stackInfo.file = stackInfo.file?.split("/").slice(6).join("/");
-    error(`${e.message}\n${JSON.stringify(e)}`, {
+    error(`${e.message}\n${JSON.stringify(e, null, 2)}`, {
       title: e.name,
       ...stackInfo,
     });
