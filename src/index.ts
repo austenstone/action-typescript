@@ -25,18 +25,23 @@ try {
   });
 } catch (e) {
   if (e instanceof Error) {
-    const stack = e.stack?.split("\n").map((s) => {
-      const [file, startLine, startColumn] = s.split(":");
-      return {
-        file,
-        startLine: parseInt(startLine),
-        startColumn: parseInt(startColumn),
-      };
-    });
-    info(`Stack: ${JSON.stringify(stack, null, 2)}`);
+    const lastStackEntry = e.stack?.split("\n").pop()?.split(":");
+    const stackInfo = lastStackEntry
+      ? {
+          file: lastStackEntry[0],
+          startLine: parseInt(lastStackEntry[1]),
+          startColumn: parseInt(lastStackEntry[2]),
+        }
+      : {};
+
+    stackInfo.file?.replace(
+      `/home/runner/work/${context.repo.owner}/${context.repo.repo}/`,
+      "",
+    );
+    info(`Stack: ${JSON.stringify(stackInfo, null, 2)}`);
     error(e.message, {
       title: e.name,
-      ...(stack ? stack[stack.length - 1] : {}),
+      ...stackInfo,
     });
   }
   throw e;
