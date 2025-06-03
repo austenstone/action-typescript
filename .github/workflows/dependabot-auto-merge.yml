@@ -1,0 +1,10 @@
+name: Dependabot Auto-merge
+on: pull_request
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  dependabot:
+    uses: austenstone/.github/.github/workflows/dependabot-auto-merge.yml@main
