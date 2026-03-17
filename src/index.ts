@@ -8,7 +8,7 @@ const input = {
 const octokit = getOctokit(input.token);
 
 await group("Issues", async () => {
-  const { data: issues } = await octokit.rest.issues.list(context.repo);
+  const { data: issues } = await octokit.rest.issues.listForRepo(context.repo);
 
   for (const issue of issues) {
     info(`#${issue.number}: ${issue.title}`);
